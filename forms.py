@@ -3,7 +3,7 @@ from wtforms.validators import InputRequired, Optional
 from flask_wtf import FlaskForm
 
 class Add_Pet(FlaskForm):
-"""wtform to add a pet on the list"""
+# wtform to add a pet on the list
 
     name = StringField("Pet Name", validators = [InputRequired()])
     age = IntegerField("Pet's Age", validators = [Optional()])
@@ -17,7 +17,7 @@ class Add_Pet(FlaskForm):
 
 
 class Edit_Pet(FlaskForm):
-"""wtform to edit a pet on the list"""
+# wtform to edit a pet on the list
 
     photo = StringField("Photo URL", validators = [Optional()])
     notes = StringField("Notes", validators = [Optional()])

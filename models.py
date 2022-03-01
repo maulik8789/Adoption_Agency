@@ -11,7 +11,7 @@ def connect_db(app):
 
 
 class Pet(db.Model):
-"""pets table attributes"""
+# pets table attributes
 
     __tablename__ = "pets"
 
