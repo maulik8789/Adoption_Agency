@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details of {{pet.name}}</title>
+</head>
+<body>
+    <!-- shows flash messages -->
+    {% for msg in get_flashed_messages() %}
+      <div>{{ msg }}</div>
+    {% endfor %}
+
+    <!-- shows all the details of the pet -->
+
+    <section><img style="height: 20%; width: 20%;" src="{{pet.photo_url}}" alt="{{pet.name}}"></section>
+    <section>Pet's name id {{pet.name}}</section>
+    <section>{{pet.name}}'s Species is {{pet.species}}</section>
+    <section>{{pet.name}} is {{pet.age}}yrs old</section>
+    <section>
+        {% if pet.available == True %}
+            <p>{{pet.name}} is <b>available</b></p>
+        {% else %}
+            <p>{{pet.name}} is not available</p>
+        {% endif %}
+    <section>Notes: {{pet.notes}}</section>
+
+    <form action="/edit/{{pet.id}}">
+        <button>Edit</button>
+    </form>
+
+    <!-- Button for going to Home -->
+    <form action="/">
+        <button>Home</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{pet.name}}'s Details</title>
+</head>
+<body>
+    {% for msg in get_flashed_messages() %}
+      <div>{{ msg }}</div>
+    {% endfor %}
+
+    <form id="pet-edit-form" method="POST">
+        {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+
+
+            <p>
+
+                <!-- editing of image of the pet -->
+                <img style="height: 20%; width: 20%;" src="{{pet.photo_url}}" alt="{{pet.name}}"> <br>
+                {{pet.photo_url}} <br>
+                Edit: {{form.photo.label}}
+                {{form.photo}}
+                {{form.photo.error}} <br>
+                
+                <!-- editing of notes of the pet -->
+                {{pet.notes}}
+                Edit: {{form.notes.label}}
+                {{form.notes}}
+                {{form.notes.error}} <br>
+
+                <!-- editing of availability of the pet -->
+                {% if pet.available == True %}
+                    <p>{{pet.name}} is <b>available</b> <br>
+                    {{form.available.label}}                
+                    {{form.available}}</p>
+                {% else %}
+                    <p>{{pet.name}} is not available <br>
+                    {{form.available.label}}                
+                    {{form.available}}</p>
+                {% endif %}
+                {{form.available.error}}
+            </p>
+
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
